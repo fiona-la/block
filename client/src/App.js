@@ -1,25 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let quote = "A Quote Here"
+    let image = window.location.origin + "/monday.png";
+    let now = new Date();
+    return (
+        <div id="bg" style={{ background: "url(" + image + ")" }} >
+            <div id="layer" >
+            <h2>{now.getHours()} : {now.getMinutes()}</h2>
+                <h2>{quote}</h2>
+            </div>
+        </div>
+    );
 }
 
 export default App;
