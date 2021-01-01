@@ -6,12 +6,7 @@ function App() {
       .then((res) => res.text())
       .then((quote) => {
         setQuote(quote);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  const [quote, setQuote] = useState("");
-
-  useEffect(() => {
+      });
     fetch("http://localhost:3001/weekday")
       .then((res) => res.text())
       .then((weekday) => {
@@ -19,6 +14,7 @@ function App() {
       })
       .catch((err) => console.log(err));
   }, []);
+  const [quote, setQuote] = useState("");
   const [weekday, setWeekday] = useState("");
 
   let image = window.location.origin + `/${weekday}.jpg`;
