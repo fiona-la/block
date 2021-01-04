@@ -1,45 +1,36 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-
+import Homepage from './components/homepage';
 function App() {
   useEffect(() => {
-    var date = new Date();
-    setHour(date.getHours());
-    setMin(date.getMinutes());
-    fetch("http://localhost:3001/qotd")
-      .then((res) => res.text())
-      .then((quote) => {
-        setQuote(quote);
-      });
     fetch("http://localhost:3001/weekday")
       .then((res) => res.text())
       .then((weekday) => {
         setWeekday(weekday);
       })
       .catch((err) => console.log(err));
-
-    let curTime = setInterval(() => {
-      var date = new Date();
-      setHour(date.getHours());
-      setMin(date.getMinutes());
-    }, 60000);
-
-    return () => clearInterval(curTime);
   }, []);
+  const [tab, setTab] = useState(0);
 
-  const [hour, setHour] = useState("");
-  const [min, setMin] = useState("");
-  const [quote, setQuote] = useState("");
   const [weekday, setWeekday] = useState("");
 
   let image = window.location.origin + `/${weekday}.jpg`;
+  const showTab = () =>{
+    switch(tab){
+      case 0:
+        return <Homepage />;
+      case 1:
+        return <div>Not Implemented </div>;
+    }
+  }
+  let openTabOne = () =>{
+    setTab(1)
+  }
   return (
     <div id="bg" style={{ background: "url(" + image + ")" }}>
       <div id="layer">
-        <h2 id="clock">
-          {hour} : {min}
-        </h2>
-        <h2>{quote}</h2>
+      <button onClick={openTabOne}>Swap Tab</button>
+      {showTab()}
       </div>
     </div>
   );
