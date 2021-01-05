@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import Homepage from './components/homepage';
+import Homepage from "./components/homepage";
+import Todo from "./components/todo";
 function App() {
   useEffect(() => {
     fetch("http://localhost:3001/weekday")
@@ -15,22 +16,22 @@ function App() {
   const [weekday, setWeekday] = useState("");
 
   let image = window.location.origin + `/${weekday}.jpg`;
-  const showTab = () =>{
-    switch(tab){
+  const showTab = () => {
+    switch (tab) {
       case 0:
         return <Homepage />;
       case 1:
-        return <div>Not Implemented </div>;
+        return <Todo />;
     }
-  }
-  let openTabOne = () =>{
-    setTab(1)
-  }
+  };
+  let openTabOne = () => {
+    setTab(1);
+  };
   return (
     <div id="bg" style={{ background: "url(" + image + ")" }}>
       <div id="layer">
-      <button onClick={openTabOne}>Swap Tab</button>
-      {showTab()}
+        <button onClick={openTabOne}>Swap Tab</button>
+        {showTab()}
       </div>
     </div>
   );
