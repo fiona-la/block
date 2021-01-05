@@ -43,7 +43,7 @@ const Todo = () => {
       canAddLanes={true}
       editLaneTitle={true}
       onDataChange={updateStorage}
-      style={{ backgroundColor: "white", fontFamily: "Poppins" }}
+      style={{ backgroundColor: "transparent", fontFamily: "Poppins" }}
     />
   );
 };

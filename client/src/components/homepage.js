@@ -32,11 +32,11 @@ const Homepage = () => {
     return () => clearInterval(curTime);
   }, []);
   return (
-    <div>
+    <div id="homepage">
       <h2 id="clock">
         {hour} : {min}
       </h2>
-      <h3>{quote}</h3>
+      <h2>{quote}</h2>
     </div>
   );
 };

@@ -34,21 +34,21 @@ function App() {
     setTab(0);
   };
   return (
-    <div
-      id="bg"
-      style={{ background: "url(" + image + ") no-repeat center center fixed" }}
-    >
-      <div id="layer">
-        <Button variant="outline-dark" onClick={openHome}>
+    <div id="app" >
+      <div id="nav" >
+        <Button variant="outline-white" onClick={openHome}>
           Home
         </Button>
         <br></br>
-        <Button variant="outline-dark" onClick={openTabOne}>
+        <Button variant="outline-whiet" onClick={openTabOne}>
           To do List
         </Button>
-        {showTab()}
+      </div>
+      <div id="bg" style={{ background: "url(" + image + ") " }} >
+          {showTab()}
       </div>
     </div>
+
   );
 }
 
