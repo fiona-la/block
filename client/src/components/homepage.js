@@ -38,9 +38,9 @@ const Homepage = () => {
   return (
     <div id="homepage">
       <h2 id="clock">
-        {hour} : {min}
+        {hour}:{min}
       </h2>
-      <h2>{quote}</h2>
+      <h2 id="quotes">{quote}</h2>
     </div>
   );
 };
