@@ -15,8 +15,12 @@ const Homepage = () => {
       });
     //start with current time
     let date = new Date();
-    setHour(date.getHours());
-    setMin(date.getMinutes());
+    var h = date.getHours();
+    var m = date.getMinutes().toString();
+    h = h % 12 || 12;
+    h = h.toString();
+    setHour(h.padStart(2, "0"));
+    setMin(m.padStart(2, "0"));
     //update time Current once per minute
 
     const curTime = setInterval(() => {
