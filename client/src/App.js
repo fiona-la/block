@@ -31,7 +31,7 @@ function App() {
     setTab(0);
   };
   return (
-    <div id="bg" style={{ background: "url(" + image + ")" }}>
+    <div id="bg" style={{ background: "url(" + image + ") no-repeat center center fixed"  }}>
       <div id="layer">
         <button onClick={openTabOne}>To do List</button>
         <button onClick={openHome}>Home</button>
