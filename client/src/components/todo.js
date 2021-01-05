@@ -3,33 +3,19 @@ import { useEffect, useState } from "react";
 
 const Todo = () => {
   const [list, setList] = useState({
-    lanes: [
-      {
-        id: "lane1",
-        title: "Planned Tasks",
-        cards: [
-          {
-            id: "Card1",
-            title: "Write Blog",
-            description: "Can AI make memes",
-            label: "30 mins",
-          },
-          {
-            id: "Card2",
-            title: "Pay Rent",
-            description: "Transfer via NEFT",
-            label: "5 mins",
-            metadata: { sha: "be312a1" },
-          },
-        ],
-      },
-      {
-        id: "lane2",
-        title: "Completed",
-        cards: [],
-      },
-    ],
+    lanes: [],
   });
+  useEffect(() => {
+    if (localStorage.getItem("Kanban")) {
+      setList(JSON.parse(localStorage.getItem("Kanban")));
+    }
+  }, []);
+
+  const updateStorage = (newData) => {
+    setList(newData);
+    localStorage.setItem("Kanban", JSON.stringify(newData));
+  };
+
   return (
     <Board
       data={list}
@@ -39,8 +25,8 @@ const Todo = () => {
       cardDraggable={true}
       collapsibleLanes={true}
       canAddLanes={true}
-      hideCardDeleteIcon={true}
       editLaneTitle={true}
+      onDataChange={updateStorage}
     />
   );
 };

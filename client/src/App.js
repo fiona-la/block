@@ -27,10 +27,14 @@ function App() {
   let openTabOne = () => {
     setTab(1);
   };
+  let openHome = () => {
+    setTab(0);
+  };
   return (
     <div id="bg" style={{ background: "url(" + image + ")" }}>
       <div id="layer">
-        <button onClick={openTabOne}>Swap Tab</button>
+        <button onClick={openTabOne}>To do List</button>
+        <button onClick={openHome}>Home</button>
         {showTab()}
       </div>
     </div>
