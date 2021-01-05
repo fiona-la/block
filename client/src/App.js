@@ -2,6 +2,9 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Homepage from "./components/homepage";
 import Todo from "./components/todo";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   useEffect(() => {
     fetch("http://localhost:3001/weekday")
@@ -31,10 +34,18 @@ function App() {
     setTab(0);
   };
   return (
-    <div id="bg" style={{ background: "url(" + image + ") no-repeat center center fixed"  }}>
+    <div
+      id="bg"
+      style={{ background: "url(" + image + ") no-repeat center center fixed" }}
+    >
       <div id="layer">
-        <button onClick={openTabOne}>To do List</button>
-        <button onClick={openHome}>Home</button>
+        <Button variant="outline-dark" onClick={openHome}>
+          Home
+        </Button>
+        <br></br>
+        <Button variant="outline-dark" onClick={openTabOne}>
+          To do List
+        </Button>
         {showTab()}
       </div>
     </div>

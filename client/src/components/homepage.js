@@ -18,10 +18,15 @@ const Homepage = () => {
     setHour(date.getHours());
     setMin(date.getMinutes());
     //update time Current once per minute
-    let curTime = setInterval(() => {
-      let date = new Date();
-      setHour(date.getHours());
-      setMin(date.getMinutes());
+
+    const curTime = setInterval(() => {
+      let d = new Date();
+      var h = d.getHours();
+      var m = d.getMinutes().toString();
+      h = h % 12 || 12;
+      h = h.toString();
+      setHour(h.padStart(2, "0"));
+      setMin(m.padStart(2, "0"));
     }, 60000);
 
     return () => clearInterval(curTime);
@@ -33,7 +38,7 @@ const Homepage = () => {
       </h2>
       <h3>{quote}</h3>
     </div>
-    )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

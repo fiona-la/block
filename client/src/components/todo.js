@@ -3,7 +3,23 @@ import { useEffect, useState } from "react";
 
 const Todo = () => {
   const [list, setList] = useState({
-    lanes: [],
+    lanes: [
+      {
+        id: "lane1",
+        title: "Planned Tasks",
+        cards: [],
+      },
+      {
+        id: "lane3",
+        title: "Completed",
+        cards: [],
+      },
+      {
+        id: "lane2",
+        title: "In Progress",
+        cards: [],
+      },
+    ],
   });
   useEffect(() => {
     if (localStorage.getItem("Kanban")) {
@@ -27,6 +43,7 @@ const Todo = () => {
       canAddLanes={true}
       editLaneTitle={true}
       onDataChange={updateStorage}
+      style={{ backgroundColor: "white", fontFamily: "Poppins" }}
     />
   );
 };

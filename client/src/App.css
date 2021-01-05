@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100;1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Quicksand:wght@300;400;500;600;700&display=swap');
 #bg {
     position: fixed;
     top: 0;
@@ -15,18 +14,34 @@
     font-size: 50px;
     color: black
 }
-
-#layer {
+#layer{
     margin-top: 10%;
     margin-left: 25%;
-    background-color: white;
+    background-color:white;
+    border-radius: 15px;
     position: absolute;
     top: 0;
     left: 0;
     width: 50%;
     height: 50%;
 }
-
-.clock {
+h3{
+    text-align: center;
+    position: center;
+    
+}
+body{
+    
     font-family: "Poppins";
+}
+
+
+.react-trello-lane {
+    border: 0;
+    background-color: white;
+}
+
+.react-trello-board{
+    border: 0;
+    background-color: white;
 }
