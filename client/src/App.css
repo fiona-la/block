@@ -49,3 +49,12 @@ body{
 .react-trello-board{
     border: 0;
 }
+
+#but-home{
+    height:38px;
+    width:113px;
+}
+#but-todo{
+    height:38px;
+    width:113px;
+}

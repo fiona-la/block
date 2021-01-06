@@ -18,7 +18,7 @@ function App() {
 
   const [weekday, setWeekday] = useState("");
 
-  let image = window.location.origin + `/${weekday}.jpg`;
+  let image = window.location.origin + `/public/${weekday}.jpg`;
   const showTab = () => {
     switch (tab) {
       case 0:
@@ -34,21 +34,20 @@ function App() {
     setTab(0);
   };
   return (
-    <div id="app" >
-      <div id="nav" >
-        <Button variant="outline-white" onClick={openHome}>
+    <div id="app">
+      <div id="nav">
+        <Button variant="outline-white" onClick={openHome} id="but-home">
           Home
         </Button>
         <br></br>
-        <Button variant="outline-whiet" onClick={openTabOne}>
+        <Button variant="outline-whiet" onClick={openTabOne} id="but-todo">
           To do List
         </Button>
       </div>
-      <div id="bg" style={{ background: "url(" + image + ") " }} >
-          {showTab()}
+      <div id="bg" style={{ background: "url(" + image + ") " }}>
+        {showTab()}
       </div>
     </div>
-
   );
 }
 
