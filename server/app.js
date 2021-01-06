@@ -3,7 +3,11 @@ const express = require("express");
 const axios = require("axios");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+var corsOptions = {
+  //origin: "https://fionala-code.github.io/block/",
+  origin: "https://fionala-code.github.io",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 // initialize the app
 const app = express();
 
@@ -11,10 +15,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors());
-
 // call the API this is your api
-app.get("/qotd", (req, res) => {
+app.get("/qotd", cors(corsOptions), (req, res) => {
   axios
     .get(
       "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json"
@@ -27,7 +29,7 @@ app.get("/qotd", (req, res) => {
     // catching errors
     .catch((error) => console.log(error));
 });
-app.get("/weekday", (req, res) => {
+app.get("/weekday", cors(corsOptions), (req, res) => {
   var d = new Date();
   var weekday = new Array(7);
   weekday[0] = "sunday";
