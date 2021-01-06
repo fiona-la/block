@@ -18,7 +18,7 @@ function App() {
 
   const [weekday, setWeekday] = useState("");
 
-  let image = window.location.origin + `/public/${weekday}.jpg`;
+  let image = window.location.origin + `/block/${weekday}.jpg`;
   const showTab = () => {
     switch (tab) {
       case 0:
